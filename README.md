@@ -1,3 +1,3 @@
-### React boilerplate without auth
+### OpenTrivia
 
-### Download and run npm install
+* WIP - Integretating server rewrite from DEV branch with new react based front-end
