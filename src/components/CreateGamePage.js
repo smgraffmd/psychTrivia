@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { socket } from '../app';
+import {setRoom} from '../actions/game';
+import {Redirect} from 'react-router-dom';
 
 export class CreateGamePage extends React.Component {
 
@@ -9,7 +11,11 @@ export class CreateGamePage extends React.Component {
 
         this.state = {
             room: "",
-            category: 0
+            category: "0",
+            difficulty: "any",
+            questionCount: "5",
+            error: "",
+            background: ""
         }
     }
 
@@ -23,19 +29,48 @@ export class CreateGamePage extends React.Component {
         this.setState({category})
     }
 
+    onDifficultyChange = (e) => {
+        const difficulty = e.target.value;
+        this.setState({difficulty});
+    }
+
+    onCountChange = (e) => {
+        const questionCount = e.target.value;
+        this.setState({questionCount});
+    }
     submitForm = (e) => {
         e.preventDefault();
-        console.log(this.state.room);
-    };
+        const config = {
+            room: this.state.room,
+            category: this.state.category,
+            difficulty: this.state.difficulty,
+            questionCount: this.state.questionCount
+        };
+        console.log("submitting")
+        socket.emit("createRoom", config, (res) => {
+            console.log("res!", res);
+            if(res.code === "success") {
+                this.setState({error: ""})
+                this.props.setRoom(this.state.room);
+                this.props.history.push("/lobby");
+            } else {
+                this.setState({error: res.msg})
+            }
+        });
 
+    };
 
     render() {
         return (
             <div className="content-container">
+                {
+                    this.props.type === "" && <Redirect to="/"/>
+                }
                 <div className="box-layout__box">
 
                     <form className="form" onSubmit={this.submitForm}>
                         <h1 className={"box-layout__title"}>Create New Game</h1>
+                        {this.state.error && <p>{this.state.error}</p>}
                         <input
                             type="text"
                             placeholder="Room Name"
@@ -45,12 +80,23 @@ export class CreateGamePage extends React.Component {
                             className="text-input"
                         />
                         <select className="select" value={this.state.category} onChange={this.onCategoryChange}>
-                            <option key={0} value={0}>All Categories</option>
+                            <option key={"0"} value={"0"}>Any Categories</option>
                             {
                                 this.props.categories.map((category) => {
                                     return <option key={category.id} value={category.id}>{category.name}</option>
                                 })
                             }
+                        </select>
+                        <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
+                            <option key={"any"} value={"any"}>Any Categories</option>
+                            <option key="easy" value="easy">Easy</option>
+                            <option key="medium" value="medium">Medium</option>
+                            <option key="hard" value="hard">Hard</option>
+                        </select>
+                        <select className="select" value={this.state.questionCount} onChange={this.onCountChange}>
+                            <option key="5" value="5">5</option>
+                            <option key="10" value="10">10</option>
+                            <option key="15" value="15">15</option>
                         </select>
                         <button className="button">Create</button>
 
@@ -65,8 +111,12 @@ export class CreateGamePage extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-    categories: state.game.categories
-})
+    categories: state.game.categories,
+    type: state.type
+});
 
+const mapDispatchToProps = (dispatch) => ({
+    setRoom: (room) => dispatch(setRoom(room))
+});
 
-export default connect(mapStateToProps)(CreateGamePage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateGamePage);

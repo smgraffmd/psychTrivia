@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
 import CreateGamePage from '../components/CreateGamePage';
+import LobbyPage from '../components/LobbyPage';
 
 export const history = createHistory();
 
@@ -12,10 +13,11 @@ export const history = createHistory();
 const AppRouter = () => (
     <Router history={history}>
         <div>
-            <Header />
+            <Header history={history}/>
             <Switch>
                 <Route exact={true} path="/" component={DashboardPage} />
                 <Route  path="/create" component={CreateGamePage} />
+                <Route  path="/lobby" component={LobbyPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

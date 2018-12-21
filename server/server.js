@@ -29,23 +29,25 @@ io.on("connection", (socket) => {
         socket.emit("new", new Date().toTimeString());
     });
 
-    socket.on("createRoom", (config) => {
+    socket.on("createRoom", (config, callback) => {
         if (isValidString(config.room)) {
             if (games.checkRoomName(config.room)) {
-                games.addGame(socket.id, config.room, config.category, config.difficulty, config.questions);
+                games.addGame(socket.id, config.room, config.category, config.difficulty, config.questionCount);
                 socket.join(config.room);
-                socket.emit("roomCreated");
+                
+                callback({ code: "success"});
             } else {
-                socket.emit("ERROR", {
+                callback({
                     code: "ROOMERROR",
                     msg: `Room name ${config.room} is taken. Please try another name.`
-                });
+                })
+
             }
         } else {
-            socket.emit("ERROR", {
+            callback({
                 code: "ROOMERROR",
                 msg: `Cannot use empty string for room name.`
-            });
+            })
         }
     });
 

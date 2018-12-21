@@ -1,0 +1,14 @@
+.player {
+    background: $off-white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid darken($off-white, 10%);
+}
+
+.player__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

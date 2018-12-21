@@ -9,6 +9,11 @@ export default (state = defaultCategories, action) => {
                 ...state,
                 categories: action.categories
             };
+        case "SET_ROOM":
+            return {
+                ...state,
+                room: action.room
+            };
         default:
             return state;
     };
