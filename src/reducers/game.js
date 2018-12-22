@@ -1,8 +1,10 @@
-const defaultCategories = {
-    categories: []
+const defaultGame = {
+    categories: [],
+    room: "",
+    
 };
 
-export default (state = defaultCategories, action) => {
+export default (state = defaultGame, action) => {
     switch(action.type) {
         case "SET_CATEGORIES": 
             return {
@@ -13,6 +15,11 @@ export default (state = defaultCategories, action) => {
             return {
                 ...state,
                 room: action.room
+            };
+        case "RESET_ROOM":
+            return {
+                ...state,
+                room: ""
             };
         default:
             return state;

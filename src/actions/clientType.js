@@ -6,3 +6,7 @@ export const setHost = () => ({
 export const setPlayer = () => ({
     type: "SET_PLAYER"
 });
+
+export const resetType = () => ({
+    type: "RESET_TYPE"
+});

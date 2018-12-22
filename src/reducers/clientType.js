@@ -6,6 +6,8 @@ export default (state = defaultType, action) => {
             return "HOST";
         case "SET_PLAYER":
             return "PLAYER";
+        case "RESET_TYPE":
+            return defaultType;
         default:
             return state;
     }

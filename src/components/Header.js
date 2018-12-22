@@ -1,6 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { socket } from '../app';
+import { connect } from 'react-redux';
+import { resetPlayers} from '../actions/players';
+import { resetRoom } from '../actions/game';
+import { resetType } from '../actions/clientType';
 
 
 export class Header extends React.Component {
@@ -8,6 +11,9 @@ export class Header extends React.Component {
     handleClick = () => {
         socket.disconnect();
         socket.connect();
+        this.props.resetPlayers();
+        this.props.resetRoom();
+        this.props.resetType();
         this.props.history.push("/");
     }
     
@@ -23,6 +29,13 @@ export class Header extends React.Component {
             </header>
         )
     }
-}
+};
 
-export default (Header);
+
+const mapDispatchToProps = (dispatch) => ({
+    resetPlayers: () => dispatch(resetPlayers()),
+    resetRoom: () => dispatch(resetRoom()),
+    resetType: () => dispatch(resetType())
+});
+
+export default connect(undefined, mapDispatchToProps)(Header);

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { socket } from '../app';
-import {setRoom} from '../actions/game';
-import {Redirect} from 'react-router-dom';
+import { setRoom } from '../actions/game';
+import { Redirect } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
 
 export class CreateGamePage extends React.Component {
 
@@ -26,17 +27,17 @@ export class CreateGamePage extends React.Component {
 
     onCategoryChange = (e) => {
         const category = e.target.value;
-        this.setState({category})
+        this.setState({ category })
     }
 
     onDifficultyChange = (e) => {
         const difficulty = e.target.value;
-        this.setState({difficulty});
+        this.setState({ difficulty });
     }
 
     onCountChange = (e) => {
         const questionCount = e.target.value;
-        this.setState({questionCount});
+        this.setState({ questionCount });
     }
     submitForm = (e) => {
         e.preventDefault();
@@ -49,12 +50,12 @@ export class CreateGamePage extends React.Component {
         console.log("submitting")
         socket.emit("createRoom", config, (res) => {
             console.log("res!", res);
-            if(res.code === "success") {
-                this.setState({error: ""})
+            if (res.code === "success") {
+                this.setState({ error: "" })
                 this.props.setRoom(this.state.room);
                 this.props.history.push("/lobby");
             } else {
-                this.setState({error: res.msg})
+                this.setState({ error: res.msg })
             }
         });
 
@@ -64,44 +65,44 @@ export class CreateGamePage extends React.Component {
         return (
             <div className="content-container">
                 {
-                    this.props.type === "" && <Redirect to="/"/>
+                    this.props.type === "" && <Redirect to="/" />
                 }
                 <div className="box-layout__box">
+                    <Fade>
+                        <form className="form" onSubmit={this.submitForm}>
+                            <h1 className={"box-layout__title"}>Create New Game</h1>
+                            {this.state.error && <p>{this.state.error}</p>}
+                            <input
+                                type="text"
+                                placeholder="Room Name"
+                                autoFocus
+                                value={this.state.room}
+                                onChange={this.onRoomChange}
+                                className="text-input"
+                            />
+                            <select className="select" value={this.state.category} onChange={this.onCategoryChange}>
+                                <option key={"0"} value={"0"}>Any Categories</option>
+                                {
+                                    this.props.categories.map((category) => {
+                                        return <option key={category.id} value={category.id}>{category.name}</option>
+                                    })
+                                }
+                            </select>
+                            <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
+                                <option key={"any"} value={"any"}>Any Categories</option>
+                                <option key="easy" value="easy">Easy</option>
+                                <option key="medium" value="medium">Medium</option>
+                                <option key="hard" value="hard">Hard</option>
+                            </select>
+                            <select className="select" value={this.state.questionCount} onChange={this.onCountChange}>
+                                <option key="5" value="5">5</option>
+                                <option key="10" value="10">10</option>
+                                <option key="15" value="15">15</option>
+                            </select>
+                            <button className="button">Create</button>
 
-                    <form className="form" onSubmit={this.submitForm}>
-                        <h1 className={"box-layout__title"}>Create New Game</h1>
-                        {this.state.error && <p>{this.state.error}</p>}
-                        <input
-                            type="text"
-                            placeholder="Room Name"
-                            autoFocus
-                            value={this.state.room}
-                            onChange={this.onRoomChange}
-                            className="text-input"
-                        />
-                        <select className="select" value={this.state.category} onChange={this.onCategoryChange}>
-                            <option key={"0"} value={"0"}>Any Categories</option>
-                            {
-                                this.props.categories.map((category) => {
-                                    return <option key={category.id} value={category.id}>{category.name}</option>
-                                })
-                            }
-                        </select>
-                        <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
-                            <option key={"any"} value={"any"}>Any Categories</option>
-                            <option key="easy" value="easy">Easy</option>
-                            <option key="medium" value="medium">Medium</option>
-                            <option key="hard" value="hard">Hard</option>
-                        </select>
-                        <select className="select" value={this.state.questionCount} onChange={this.onCountChange}>
-                            <option key="5" value="5">5</option>
-                            <option key="10" value="10">10</option>
-                            <option key="15" value="15">15</option>
-                        </select>
-                        <button className="button">Create</button>
-
-                    </form>
-
+                        </form>
+                    </Fade>
 
                 </div>
             </div>

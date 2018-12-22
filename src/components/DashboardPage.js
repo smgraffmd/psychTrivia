@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setHost, setPlayer } from '../actions/clientType';
-
+import Fade from 'react-reveal/Fade';
 
 export class DashboardPage extends React.Component {
 
@@ -19,20 +19,22 @@ export class DashboardPage extends React.Component {
     render() {
         return (
             <div className="box-layout">
-                <div className="box-layout__box">
-                    <h1 className="box-layout__title">OpenTrivia</h1>
-                    <div className="box-layout__button-container">
-                        <div className="box-layout__button">
-                            <button className="button" onClick={this.startAsHost}>Create Game</button>
-                        </div>
+                <Fade>
+                    <div className="box-layout__box">
+                        <h1 className="box-layout__title">OpenTrivia</h1>
+                        <div className="box-layout__button-container">
+                            <div className="box-layout__button">
+                                <button className="button" onClick={this.startAsHost}>Create Game</button>
+                            </div>
 
-                        <div className="box-layout__button">
-                            <button className="button" onClick={this.startAsPlayer}>Join Game</button>
+                            <div className="box-layout__button">
+                                <button className="button" onClick={this.startAsPlayer}>Join Game</button>
+                            </div>
+
                         </div>
 
                     </div>
-
-                </div>
+                </Fade>
 
             </div>
         )

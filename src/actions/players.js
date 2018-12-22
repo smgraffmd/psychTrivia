@@ -8,3 +8,7 @@ export const removePlayer = (name) => ({
     type: "REMOVE_PLAYER",
     name
 });
+
+export const resetPlayers = () => ({
+    type: "RESET_PLAYERS"
+});
