@@ -47,9 +47,9 @@ export class CreateGamePage extends React.Component {
             difficulty: this.state.difficulty,
             questionCount: this.state.questionCount
         };
-        console.log("submitting")
+        //console.log("submitting")
         socket.emit("createRoom", config, (res) => {
-            console.log("res!", res);
+            //console.log("res!", res);
             if (res.code === "success") {
                 this.setState({ error: "" })
                 this.props.setRoom(this.state.room);
@@ -71,7 +71,7 @@ export class CreateGamePage extends React.Component {
                     <Fade>
                         <form className="form" onSubmit={this.submitForm}>
                             <h1 className={"box-layout__title"}>Create New Game</h1>
-                            {this.state.error && <p>{this.state.error}</p>}
+                            {this.state.error && <p className="form__error">{this.state.error}</p>}
                             <input
                                 type="text"
                                 placeholder="Room Name"

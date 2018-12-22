@@ -7,7 +7,9 @@ export default (state = defaultPlayersState, action) => {
         case "REMOVE_PLAYER": 
             return state.filter((player) => player.name !== action.name);
         case "RESET_PLAYERS" : 
-            return defaultPlayersState
+            return defaultPlayersState;
+        case "SET_PLAYERS":
+            return action.players;
         default: 
             return state;
     }

@@ -12,3 +12,8 @@ export const removePlayer = (name) => ({
 export const resetPlayers = () => ({
     type: "RESET_PLAYERS"
 });
+
+export const setPlayers = (players) => ({
+    type: "SET_PLAYERS",
+    players
+});

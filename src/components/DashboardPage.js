@@ -22,6 +22,7 @@ export class DashboardPage extends React.Component {
                 <Fade>
                     <div className="box-layout__box">
                         <h1 className="box-layout__title">OpenTrivia</h1>
+                        <h3 className="box-layout__subtitle">A party trivia game in your web browser. <br></br> No downloading apps just create a game on the big screen and join up with your mobile device to play.</h3>
                         <div className="box-layout__button-container">
                             <div className="box-layout__button">
                                 <button className="button" onClick={this.startAsHost}>Create Game</button>

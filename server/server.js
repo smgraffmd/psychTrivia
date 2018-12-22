@@ -51,15 +51,15 @@ io.on("connection", (socket) => {
         }
     });
 
-    socket.on("joinRoom", (config) => {
+    socket.on("joinRoom", (config, callback) => {
         if (isValidString(config.name) && isValidString(config.room)) {
             var g = games.getGameByRoom(config.room);
             if (g && g.active) {
-                return socket.emit("ERROR", {
+                return callback({
                     code: "NAMEERROR",
                     msg: `Cannot join room ${config.name}. Game has already started.`
                 });
-            }
+            };
 
             if (!games.checkRoomName(config.room)) {
                 if (games.checkUsername(config.room, config.name)) {
@@ -67,21 +67,23 @@ io.on("connection", (socket) => {
                     socket.join(config.room);
                     socket.emit("joinedRoom");
                     var game = games.getGameByRoom(config.room);
-                    io.to(game.host).emit("PLAYER-CONNECTED", { name: config.name });
+                    var players = games.getFromRoom(config.room);
+                    callback({code: "success"});
+                    io.to(game.host).emit("PLAYER-CONNECTED", { name: config.name, colour: config.colour });
                 } else {
-                    socket.emit("ERROR", {
+                    callback({
                         code: "NAMEERROR",
                         msg: `${config.name} is already being used in room: ${config.room}`
                     });
                 }
             } else {
-                socket.emit("ERROR", {
+                callback({
                     code: "NAMEERROR",
                     msg: "Room does not exist!"
                 });
             };
         } else {
-            socket.emit("ERROR", {
+            callback({
                 code: "NAMEERROR",
                 msg: `Please enter both the room name and username.`
             });

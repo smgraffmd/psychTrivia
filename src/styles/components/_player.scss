@@ -3,7 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 1px solid darken($off-white, 10%);
+    border: 2px solid darken($off-white, 10%);
+    border-radius: 5px;
 }
 
 .player__items {

@@ -10,15 +10,21 @@
 
 .box-layout__box {
     background: fade-out(white, .15);
-    border-radius: 3px;
+    border-radius: 5px;
+    border: 2px solid darken($off-white, 10%);
     text-align: center;
-    width: 80rem;
     padding: $l-size $m-size;
+    margin: $m-size 0;
 }
 
 .box-layout__title {
     margin: 0 0 $m-size 0;
     line-height: 1;
+}
+
+.box-layout__subtitle {
+    margin: 0 0 $m-size 0;
+    font-weight: 300;
 }
 
 .box-layout__button-container {
