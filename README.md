@@ -1,24 +1,19 @@
-<<<<<<< HEAD
 # OpenTrivia
-Small multiplayer quiz demo using express and socket.io in the backend and React for the UI. [Click Here](https://alingam-quizdemo.herokuapp.com/) to view the live demo. 
-
-Note: Using Free tier of cloud hosting for the node.js app so if the demo is offline then it has probably run out of free hours for the month so try again later.
+Small multiplayer quiz demo using express and socket.io in the backend and React for the UI. [Click Here](https://opentrivia.herokuapp.com/) to view the live demo. 
 
 ### How to use locally:
-
-* Requires: Node.JS and NPM 
 
 * Clone the repository and run the following command to download all dependencies.
 ```
  npm install
 ```
-* Now open a terminal run the following command if you just want to start the server.
+* Now open a terminal run the following command if you just want to start the server for development.
 ```
-npm node.js
+npm run watch
 ```
-Use this command if you are modifying the server for easier debugging. (Requires nodemon).
+Use the following commands if you want to test to manually build from src to test for production.
 ```
-npm run dev
+npm run build:prod or npm run build:dev followed by npm run serve
 ```
-* Open the brower and navigate to http://localhost:5000/index.html for the main screen and point all other devices to http://your_internal_ip:5000/join.html and follow onscreen instructions.
+* Open the brower and navigate to http://localhost:3000 for the main screen and point all other devices to http://your_internal_ip:3000 and follow onscreen instructions.
 
