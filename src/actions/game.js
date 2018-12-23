@@ -17,3 +17,8 @@ export const setQuestion = (question) => ({
     type: "SET_QUESTION",
     question
 });
+
+export const setMessage = (message) => ({
+    type: "SET_MESSAGE",
+    message
+});

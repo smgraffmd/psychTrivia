@@ -89,7 +89,7 @@ export class CreateGamePage extends React.Component {
                                 }
                             </select>
                             <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
-                                <option key={"any"} value={"any"}>Any Categories</option>
+                                <option key={"any"} value={"any"}>Any Difficulty</option>
                                 <option key="easy" value="easy">Easy</option>
                                 <option key="medium" value="medium">Medium</option>
                                 <option key="hard" value="hard">Hard</option>

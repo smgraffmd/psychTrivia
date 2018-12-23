@@ -1,7 +1,8 @@
 const defaultGame = {
     categories: [],
     room: "",
-    question: {}
+    question: {},
+    message: ""
 };
 
 export default (state = defaultGame, action) => {
@@ -25,6 +26,11 @@ export default (state = defaultGame, action) => {
             return {
                 ...state,
                 question: action.question
+            }
+        case "SET_MESSAGE":
+            return {
+                ...state,
+                message: action.message
             }
         default:
             return state;
