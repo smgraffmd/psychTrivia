@@ -18,3 +18,11 @@
     border-bottom: 5px solid darken($blue, 10%);
     border-radius: 5px;
 }
+
+.question-background {
+    background: fade-out(white, .15);
+    margin-bottom: 1.6rem;
+    padding: 1rem;
+    border: 2px solid #dedede;
+    border-radius: 5px;
+}

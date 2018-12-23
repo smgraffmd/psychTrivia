@@ -10,8 +10,7 @@ export class LobbyPage extends React.Component {
     onStartGame = () => {
         socket.emit("startGame", undefined, (res) => {
             if(res.code === "success") {
-                console.log("push")
-                
+                // Error Handling                
             }
         });
     };

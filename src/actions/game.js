@@ -22,3 +22,17 @@ export const setMessage = (message) => ({
     type: "SET_MESSAGE",
     message
 });
+
+export const setStatus = (status) => ({
+    type: "SET_STATUS",
+    status
+});
+
+export const resetGame = () => ({
+    type: "RESET_GAME"
+});
+
+export const setScoreboard = (scoreboard) => ({
+    type: "SET_SCOREBOARD",
+    scoreboard
+});

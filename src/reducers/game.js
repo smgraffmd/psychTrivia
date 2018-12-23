@@ -1,8 +1,10 @@
-const defaultGame = {
+ export const defaultGame = {
     categories: [],
     room: "",
     question: {},
-    message: ""
+    message: "",
+    status: "",
+    scoreboard: []
 };
 
 export default (state = defaultGame, action) => {
@@ -32,6 +34,18 @@ export default (state = defaultGame, action) => {
                 ...state,
                 message: action.message
             }
+        case "SET_STATUS": 
+            return {
+                ...state,
+                status: action.status
+            };
+        case "SET_SCOREBOARD": 
+            return {
+                ...state,
+                scoreboard: action.scoreboard
+            };
+        case "RESET_GAME":
+            return defaultGame
         default:
             return state;
     };

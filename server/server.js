@@ -139,7 +139,7 @@ io.on("connection", (socket) => {
             if (waiting === 0) {
                 var remaining = games.availableQuestions(player.room);
                 if (remaining === 1) {
-                    console.log(`${player.room} finished!`);
+                    
                     var players = games.getFromRoom(player.room);
                     var response = [];
                     players.forEach((player) => {
@@ -149,7 +149,9 @@ io.on("connection", (socket) => {
                         };
                         response.push(p);
                     })
+                    io.to(player.room).emit("msg");
                     io.to(player.room).emit("gameFinished", response);
+                    console.log(`${player.room} finished!`);
                 } else {
                     games.nextQuestion(player.room);
                     var res = setupQuestion(player.room);

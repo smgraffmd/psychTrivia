@@ -1,5 +1,5 @@
 .list-header {
-    background: $off-white;
+    background: fade-out(white, .15);
     border-radius: 5px;
     border: 2px solid darken($off-white, 10%);
     color: $grey;
@@ -10,25 +10,34 @@
     margin: $m-size 0;
 }
 
+
+
 .list-item {
+    background: fade-out(white, .15);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border-top: none;
-    border: 1px solid darken($off-white, 7%);
+    border-left: none;
+    border-right: none;
+    border-bottom: 5px solid darken($off-white, 10%);
+    border-radius: 5px;
     color: $dark-grey;
-    padding: $s-size;
+    padding: 1rem;
+    justify-content: space-between;
     text-decoration: none;
-    transition: background .3s ease;
-    &:hover {
-        background: $off-white;
-    }
+    margin: 0.8rem 1rem;
 
     @media (min-width: $desktop-breakpoint) {
         flex-direction: row;
         justify-content: space-between;
-        padding: $m-size;
+        padding: 1rem;
         align-items: center;
     }
+}
+
+.list-button {
+    @extend .list-item;
+    justify-content: center;
 }
 
 .list-item--message {
