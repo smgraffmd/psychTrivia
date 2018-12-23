@@ -2,7 +2,7 @@ import React from 'react';
 import { socket } from '../app';
 import { connect } from 'react-redux';
 import { resetPlayers} from '../actions/players';
-import { resetRoom } from '../actions/game';
+import { resetRoom, setQuestion } from '../actions/game';
 import { resetType } from '../actions/clientType';
 
 
@@ -14,6 +14,7 @@ export class Header extends React.Component {
         this.props.resetPlayers();
         this.props.resetRoom();
         this.props.resetType();
+        this.props.setQuestion({});
         this.props.history.push("/");
     }
     
@@ -35,7 +36,8 @@ export class Header extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
     resetPlayers: () => dispatch(resetPlayers()),
     resetRoom: () => dispatch(resetRoom()),
-    resetType: () => dispatch(resetType())
+    resetType: () => dispatch(resetType()),
+    setQuestion: (data) => dispatch(setQuestion(data))
 });
 
 export default connect(undefined, mapDispatchToProps)(Header);

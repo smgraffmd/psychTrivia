@@ -7,6 +7,7 @@ import NotFoundPage from '../components/NotFoundPage';
 import CreateGamePage from '../components/CreateGamePage';
 import LobbyPage from '../components/LobbyPage';
 import JoinGamePage from '../components/JoinGamePage';
+import QuestionPage from '../components/QuestionPage';
 import RenderWithHeader from './RenderWithHeader';
 
 
@@ -21,6 +22,7 @@ const AppRouter = () => (
                 <RenderWithHeader  path="/create" component={CreateGamePage} />
                 <RenderWithHeader path="/join" component={JoinGamePage} />
                 <RenderWithHeader  path="/lobby" component={LobbyPage} />
+                <RenderWithHeader  path="/play" component={QuestionPage} />
                 <RenderWithHeader component={NotFoundPage} />
             </Switch>
         </div>

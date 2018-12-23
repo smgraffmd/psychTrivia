@@ -90,7 +90,7 @@ io.on("connection", (socket) => {
         }
     })
 
-    socket.on("startGame", () => {
+    socket.on("startGame", (undefined, callback) => {
         var roomName = games.getGameByHost(socket.id).room;
         if (roomName) {
 
@@ -102,8 +102,9 @@ io.on("connection", (socket) => {
                 games.getGameByHost(socket.id).active = true;
                 games.setWaiting(roomName);
                 io.to(roomName).emit("newQuestion", question);
+                callback({code: "success"});
             } else {
-                socket.emit("ERROR", {
+                callback({
                     code: "STARTERROR",
                     msg: "Not enough players to start the game."
                 });

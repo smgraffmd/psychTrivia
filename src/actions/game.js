@@ -12,3 +12,8 @@ export const setRoom = (room) => ({
 export const resetRoom = () => ({
     type: "RESET_ROOM"
 });
+
+export const setQuestion = (question) => ({
+    type: "SET_QUESTION",
+    question
+});
