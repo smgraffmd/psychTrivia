@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OpenTrivia
 Small multiplayer quiz demo using express and socket.io in the backend and React for the UI. [Click Here](https://alingam-quizdemo.herokuapp.com/) to view the live demo. 
 
