@@ -11,7 +11,7 @@ Small multiplayer quiz demo using express and socket.io in the backend and React
 ```
 npm run watch
 ```
-Use the following commands if you want to test to manually build from src to test for production.
+Use the following commands if you want to manually build from src to test for production.
 ```
 npm run build:prod or npm run build:dev followed by npm run serve
 ```
