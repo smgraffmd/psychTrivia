@@ -16,9 +16,9 @@ export class QuestionPage extends React.Component {
         socket.emit("submitAnswer", ans, (res) => {
 
             if (res.code === "correct") {
-                this.props.setMessage(`Correct, Your score is ${res.score}`);
+                this.props.setMessage(`Correct. Your score is ${res.score}`);
             } else if (res.code === "incorrect") {
-                this.props.setMessage(`Incorrect, The correct answer was ${res.correct} Your score is ${res.score}`);
+                this.props.setMessage(`Incorrect, The correct answer was ${res.correct}. Your score is ${res.score}`);
             }
         });
     };

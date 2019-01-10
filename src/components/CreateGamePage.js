@@ -95,9 +95,9 @@ export class CreateGamePage extends React.Component {
                                 <option key="hard" value="hard">Hard</option>
                             </select>
                             <select className="select" value={this.state.questionCount} onChange={this.onCountChange}>
-                                <option key="5" value="5">5</option>
-                                <option key="10" value="10">10</option>
-                                <option key="15" value="15">15</option>
+                                <option key="5" value="5">5 Questions</option>
+                                <option key="10" value="10">10 Questions</option>
+                                <option key="15" value="15">15 Questions</option>
                             </select>
                             <button className="button">Create</button>
 
