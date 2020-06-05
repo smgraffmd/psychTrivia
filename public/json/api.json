@@ -1,0 +1,121 @@
+{
+	"response_code": 0,
+	"results": [
+		{
+			"category": "Entertainment%3A%20Film",
+			"type": "multiple",
+			"difficulty": "easy",
+			"question": "Which%20actress%20danced%20the%20twist%20with%20John%20Travolta%20in%20%27Pulp%20Fiction%27%3F",
+			"correct_answer": "Uma%20Thurman",
+			"incorrect_answers": [
+				"Kathy%20Griffin",
+				"Pam%20Grier",
+				"Bridget%20Fonda"
+			]
+		},
+		{
+			"category": "Entertainment%3A%20Cartoon%20%26%20Animations",
+			"type": "multiple",
+			"difficulty": "easy",
+			"question": "Butters%20Stotch%2C%20Pip%20Pirrup%2C%20and%20Wendy%20Testaburger%20are%20all%20characters%20in%20which%20long%20running%20animated%20TV%20series%3F",
+			"correct_answer": "South%20Park",
+			"incorrect_answers": [
+				"The%20Simpsons",
+				"Family%20Guy",
+				"Bob%27s%20Burgers"
+			]
+		},
+		{
+			"category": "Science%3A%20Computers",
+			"type": "multiple",
+			"difficulty": "easy",
+			"question": "What%20amount%20of%20bits%20commonly%20equals%20one%20byte%3F",
+			"correct_answer": "8",
+			"incorrect_answers": [
+				"1",
+				"2",
+				"64"
+			]
+		},
+		{
+			"category": "Vehicles",
+			"type": "multiple",
+			"difficulty": "medium",
+			"question": "Which%20of%20the%20following%20car%20models%20has%20been%20badge-engineered%20%28rebadged%29%20the%20most%3F",
+			"correct_answer": "Isuzu%20Trooper",
+			"incorrect_answers": [
+				"Holden%20Monaro",
+				"Suzuki%20Swift",
+				"Chevy%20Camaro"
+			]
+		},
+		{
+			"category": "General%20Knowledge",
+			"type": "multiple",
+			"difficulty": "medium",
+			"question": "Which%20of%20these%20is%20the%20name%20of%20a%20Japanese%20system%20of%20alternative%20medicine%2C%20literally%20meaning%20%22finger%20pressure%22%3F",
+			"correct_answer": "Shiatsu",
+			"incorrect_answers": [
+				"Ukiyo",
+				"Majime",
+				"Ikigai"
+			]
+		},
+		{
+			"category": "General%20Knowledge",
+			"type": "multiple",
+			"difficulty": "medium",
+			"question": "What%20is%20the%20romanized%20Japanese%20word%20for%20%22university%22%3F",
+			"correct_answer": "Daigaku",
+			"incorrect_answers": [
+				"Toshokan",
+				"Jimusho",
+				"Shokudou"
+			]
+		},
+		{
+			"category": "General%20Knowledge",
+			"type": "boolean",
+			"difficulty": "easy",
+			"question": "On%20average%2C%20at%20least%201%20person%20is%20killed%20by%20a%20drunk%20driver%20in%20the%20United%20States%20every%20hour.",
+			"correct_answer": "True",
+			"incorrect_answers": [
+				"False"
+			]
+		},
+		{
+			"category": "Art",
+			"type": "multiple",
+			"difficulty": "medium",
+			"question": "Which%20of%20these%20are%20the%20name%20of%20a%20famous%20marker%20brand%3F",
+			"correct_answer": "Copic",
+			"incorrect_answers": [
+				"Dopix",
+				"Cofix",
+				"Marx"
+			]
+		},
+		{
+			"category": "Vehicles",
+			"type": "boolean",
+			"difficulty": "medium",
+			"question": "The%20General%20Motors%20EV1%20was%20the%20first%20street-legal%20production%20electric%20vehicle.",
+			"correct_answer": "False",
+			"incorrect_answers": [
+				"True"
+			]
+		},
+		{
+			"category": "Entertainment%3A%20Japanese%20Anime%20%26%20Manga",
+			"type": "multiple",
+			"difficulty": "hard",
+			"question": "Medaka%20Kurokami%20from%20%22Medaka%20Box%22%20has%20what%20abnormality%3F",
+			"correct_answer": "The%20End",
+			"incorrect_answers": [
+				"Perfection",
+				"Sandbox",
+				"Fairness"
+			]
+		}
+	]
+}
