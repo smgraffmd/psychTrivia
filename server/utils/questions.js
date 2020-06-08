@@ -15,8 +15,8 @@ module.exports = {
     getQuestions: async (category, difficulty, questions) => {
         var url;
         if(category === "0" && difficulty === "any") {
-            //url = `https://opentdb.com/api.php?amount=${questions}&encode=url3986`;
-            url = `/public/json/api.json`;
+            url = `https://opentdb.com/api.php?amount=${questions}&encode=url3986`;
+        } else if(category === "0") {
             url = `https://opentdb.com/api.php?amount=${questions}&difficulty=${difficulty}&encode=url3986`;
         } else if(difficulty === "any") {
             url = `https://opentdb.com/api.php?amount=${questions}&category=${category}&encode=url3986`;
