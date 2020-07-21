@@ -8,7 +8,7 @@ const { isValidString } = require("./utils/validate");
 const { getCategories, shuffleArray } = require("./utils/questions");
 
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 const app = express();
 const publicPath = path.join(__dirname, "..", "public");
 var server = http.createServer(app);
@@ -19,7 +19,10 @@ io.on("connection", (socket) => {
     console.log(`${socket.id} connected!`);
 
     getCategories().then((res) => {
-        socket.emit("categories", res.trivia_categories);
+        //console.log("jgbefore"); 
+        //console.log(res);
+        //console.log("jgafter");
+        socket.emit("categories", res);
     }).catch((err) => {
         console.log(err);
     });
