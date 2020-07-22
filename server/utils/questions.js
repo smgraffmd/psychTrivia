@@ -14,7 +14,7 @@ module.exports = {
         const connection = await mysql.createConnection(databaseOptions);
         const [rows] = await connection.query("SELECT section,id FROM gmetrivia.sections where section is not null");
         await connection.end();
-        console.log(rows);
+        //console.log(rows);
         return rows;
     },
 
@@ -28,7 +28,7 @@ module.exports = {
             return rows;
         } else /*if(category === "0")*/ {
             //url = `https://opentdb.com/api.php?amount=${questions}&difficulty=${difficulty}&encode=url3986`;
-            console.log("category", category);
+            //console.log("category", category);
             const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmetrivia.questions where category='"+category+"' order by rand() limit "+questions);
             connection.end();
         //} else if(difficulty === "any") {

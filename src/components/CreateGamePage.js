@@ -81,10 +81,12 @@ export class CreateGamePage extends React.Component {
                                 className="text-input"
                             />
                             <select className="select" value={this.state.category} onChange={this.onCategoryChange}>
-                                <option key={"0"} value={"0"}>Any Categories</option>
+                                <option key={"0"} value={"0"}>Any Section</option>
                                 {                                    
                                     this.props.categories.map((category) => {
-                                        return <option key={category.id} value={category.id}>{category.section}</option>
+                                        if (category.section !== ""){
+                                            return <option key={category.id} value={category.id}>{category.section}</option>
+                                        }
                                     })
                                     
                                 }
