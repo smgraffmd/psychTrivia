@@ -82,18 +82,20 @@ export class CreateGamePage extends React.Component {
                             />
                             <select className="select" value={this.state.category} onChange={this.onCategoryChange}>
                                 <option key={"0"} value={"0"}>Any Categories</option>
-                                {
+                                {                                    
                                     this.props.categories.map((category) => {
-                                        return <option key={category.id} value={category.id}>{category.name}</option>
+                                        return <option key={category.id} value={category.id}>{category.section}</option>
                                     })
+                                    
                                 }
                             </select>
-                            <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
+                            
+                            {/* <select className="select" value={this.state.difficulty} onChange={this.onDifficultyChange}>
                                 <option key={"any"} value={"any"}>Any Difficulty</option>
                                 <option key="easy" value="easy">Easy</option>
                                 <option key="medium" value="medium">Medium</option>
                                 <option key="hard" value="hard">Hard</option>
-                            </select>
+                            </select> */}
                             <select className="select" value={this.state.questionCount} onChange={this.onCountChange}>
                                 <option key="5" value="5">5 Questions</option>
                                 <option key="10" value="10">10 Questions</option>
