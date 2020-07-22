@@ -2,17 +2,17 @@ const axios = require("axios");
 const mysql = require('mysql2/promise');
 
 var databaseOptions = {
-    host:"localhost",
-    user:"trivia",
-    password:"Password",
-    database:"gmeTrivia" 
+    host:"mysql.sarah.graffmd.com",
+    user:"testsarahgraffco",
+    password:"s5tJp2jA",
+    database:"gmetrivia" 
 };
 
 module.exports = {
 
     getCategories: async function databaseConnection(){  
         const connection = await mysql.createConnection(databaseOptions);
-        const [rows] = await connection.query("SELECT section,id FROM gmeTrivia.sections where section is not null");
+        const [rows] = await connection.query("SELECT section,id FROM gmetrivia.sections where section is not null");
         await connection.end();
         console.log(rows);
         return rows;
@@ -23,13 +23,13 @@ module.exports = {
         const connection = await mysql.createConnection(databaseOptions); 
 
         if(category === "0" && difficulty === "any") {
-            const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmeTrivia.questions order by rand() limit "+questions);
+            const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmetrivia.questions order by rand() limit "+questions);
             connection.end(); 
             return rows;
         } else /*if(category === "0")*/ {
             //url = `https://opentdb.com/api.php?amount=${questions}&difficulty=${difficulty}&encode=url3986`;
             console.log("category", category);
-            const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmeTrivia.questions where category='"+category+"' order by rand() limit "+questions);
+            const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmetrivia.questions where category='"+category+"' order by rand() limit "+questions);
             connection.end();
         //} else if(difficulty === "any") {
             //url = `https://opentdb.com/api.php?amount=${questions}&category=${category}&encode=url3986`;        
