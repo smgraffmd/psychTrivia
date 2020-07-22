@@ -8,7 +8,7 @@ const { isValidString } = require("./utils/validate");
 const { getCategories, shuffleArray } = require("./utils/questions");
 
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 const app = express();
 const publicPath = path.join(__dirname, "..", "public");
 var server = http.createServer(app);
