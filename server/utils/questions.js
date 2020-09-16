@@ -23,6 +23,7 @@ module.exports = {
         const connection = await mysql.createConnection(databaseOptions); 
 
         if(category === "0" && difficulty === "any") {
+
             const [rows] = await connection.query("SELECT category,type,difficulty,question,correct_answer,incorrect_answers FROM gmetrivia.questions order by rand() limit "+questions);
             connection.end(); 
             return rows;
@@ -35,6 +36,7 @@ module.exports = {
             //url = `https://opentdb.com/api.php?amount=${questions}&category=${category}&encode=url3986`;        
         //} else {
         //    url = `https://opentdb.com/api.php?amount=${questions}&category=${category}&difficulty=${difficulty}&encode=url3986`;
+
         };
 
         // try {
@@ -82,3 +84,4 @@ module.exports = {
 function getRandomInt(max){
     return Math.floor(Math.random() * Math.floor(max));
 } */
+
