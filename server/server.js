@@ -116,10 +116,7 @@ io.on("connection", (socket) => {
 
 
         } else {
-            callback({
-                code: "ADD ERROR CODE",
-                msg: "Add error code."
-            });
+            // Add error handling!
         }
     });
 
