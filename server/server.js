@@ -94,6 +94,7 @@ io.on("connection", (socket) => {
     })
 
     socket.on("startGame", (undefined, callback) => {
+        console.log(games.getGameByHost(socket.id).room);
         var roomName = games.getGameByHost(socket.id).room;
         if (roomName) {
 
@@ -104,7 +105,7 @@ io.on("connection", (socket) => {
                 var question = setupQuestion(roomName);
                 games.getGameByHost(socket.id).active = true;
                 games.setWaiting(roomName);
-                io.to(roomName).emit("newQuestion", {question, wait: false});
+                io.to(roomName).emit("newQuestion", {question, wait: true});
                 callback({code: "success"});
             } else {
                 callback({
