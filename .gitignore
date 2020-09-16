@@ -3,4 +3,4 @@ public/dist/
 .env.test
 .env.dev
 /.DS_Store
-.vscode
+.vscode/
