@@ -76,7 +76,7 @@ socket.on("newQuestion", (res) => {
          store.dispatch(resetStroke());
          store.dispatch(setQuestion(res.question));
          history.push("/play");
-      }, 40);
+      }, 4000);
    } else {
       store.dispatch(setMessage(""));
       store.dispatch(setStatus("active"));
